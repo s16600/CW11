@@ -51,7 +51,9 @@ namespace CW11a.Controllers
 
             //var res = _context.Doctor.ToList();
 
-            var res = (from d in _context.Doctor where IdDoctor.Equals(Int32.Parse(IdDoctor)) select d).First();
+            //var res = (from d in _context.Doctor where IdDoctor.Equals(Int32.Parse(IdDoctor)) select d).First();
+            //var s = _context.Doctors.Where(s => s.IdDoctor == id).First();
+            var res = _context.Doctor.Where(d => d.IdDoctor.Equals(Int32.Parse(IdDoctor))).First();
             _context.Doctor.Remove(res);
             _context.SaveChanges();
             return Ok("Lekarz usunięty");
